@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubtest-deployment
+  labels:
+    app: kubtest  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubtest
+  template:
+    metadata:
+      labels:
+        app: kubtest
+    spec:
+      containers:
+      - name: kubetest-con
+        image: maddurakesh435/kubtst-img
+        ports:
+        - containerPort: 80
